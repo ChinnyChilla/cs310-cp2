@@ -22,6 +22,7 @@ class MyLL {
 		bool getNext(string &str);
 		Node* getHead() const;
 		Node* getTail() const;
+		void print();
 	private:
 		Node *head;
 		Node *tail;

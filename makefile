@@ -26,6 +26,14 @@ $(OBJ)/MyLL.o: MyLL.cpp MyLL.h Node.h
 $(OBJ)/Node.o: Node.h Node.cpp
 	$(CC) $(FLAGS) -c Node.cpp -o $@
 
+test: ${BIN}/test
+
+${BIN}/test: ${OBJ}/Test.o $(OBJ)/MyLL.o $(OBJ)/Node.o 
+	$(CC) $(FLAGS) ${OBJ}/Test.o $(OBJ)/MyLL.o $(OBJ)/Node.o -o $@
+
+$(OBJ)/Test.o: test.cpp 
+	$(CC) $(FLAGS) -c test.cpp -o $@
+
 tar:	clean
 	tar cvvf $(TARFILE) $(REPODIR)
 	gzip $(TARFILE)
